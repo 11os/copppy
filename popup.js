@@ -17,10 +17,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 
   initBtn('ed2k');
   initBtn('rmd');
-
-  document.getElementById('thunder').onclick=function() {
-      copy();
-  }
+  initBtn('thunder');
 
   // document.getElementById('ed2k').onclick=function() {
   //   filter('ed2k');
@@ -59,9 +56,9 @@ function onWindowLoad() {
 }
 
 function filter(keyword) {
-  if(keyword == '') {
-	  keyword = document.getElementById('keyword').value;
-  }
+  // if(keyword == '') {
+	  keyword = keyword + ' ' + document.getElementById('keyword').value;
+  // }
 //	saveKeyword(keyword);
 	var array = g_message.split("\n");
 	var result = '';
@@ -74,8 +71,8 @@ function filter(keyword) {
 }
 
 function buildHref(url) {
-    // return url = '<a href="' + url + '" target="_blank">' + url + '</a>'
-    return url = '<a href="' + url + '" target="_self">' + url + '</a>'
+    return url = '<a href="' + url + '" target="_blank">' + url + '</a>'
+    // return url = '<a href="' + url + '" target="_self">' + url + '</a>'
 }
 
 function multijudge(src, keyword) {
